@@ -1,6 +1,8 @@
 from mijia_app.page.base_page import BasePage
 from mijia_app.page.product import Product
 
+from mijia_app.page.business import Business
+
 
 class Search(BasePage):
     """搜索页PO"""

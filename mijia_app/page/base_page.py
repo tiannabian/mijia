@@ -15,6 +15,12 @@ class BasePage:
 
     @handle_black
     def find(self, by, locator=None):
+        """
+        find方法封装driver,避免调用过程中driver丢失
+        :param by:
+        :param locator:
+        :return:
+        """
         if locator is None:
             result = self.driver.find_element(*by)
         else:

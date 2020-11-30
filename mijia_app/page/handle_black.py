@@ -13,7 +13,7 @@ def handle_black(func):
         _black_list = [
             (By.XPATH, "//*[@resource-id='com.xueqiu.android:id/iv_close']")
         ]
-        from xueqiu_app.page.base_page import BasePage
+        from mijia_app.page.base_page import BasePage
         instance: BasePage = args[0]
         try:
             logging.info("run " + func.__name__ + "\n args: \n" + repr(args[1:]) + "\n" + repr(kwargs))
