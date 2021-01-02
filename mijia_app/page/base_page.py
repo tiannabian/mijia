@@ -39,10 +39,10 @@ class BasePage:
     def steps(self, path, name):
         with open(path, encoding="utf-8") as f:
             steps = yaml.safe_load(f)[name]
-        raw = json.dumps(steps)
+        raw = json.dumps(steps)  #x序列化
         for key, value in self._params.items():
             raw = raw.replace('${' + key + '}', value)
-        steps = json.loads(raw)
+        steps = json.loads(raw)   #反序列化
         for step in steps:
             if "action" in step.keys():
                 action = step["action"]

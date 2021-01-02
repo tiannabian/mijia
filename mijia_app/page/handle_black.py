@@ -7,6 +7,7 @@ from selenium.webdriver.common.by import By
 
 
 def handle_black(func):
+    """"用来处理黑名单"""
     logging.basicConfig(level=logging.INFO)
 
     def wrapper(*args, **kwargs):
@@ -14,7 +15,7 @@ def handle_black(func):
             (By.XPATH, "//*[@resource-id='com.xueqiu.android:id/iv_close']")
         ]
         from mijia_app.page.base_page import BasePage
-        instance: BasePage = args[0]
+        instance: BasePage = args[0]  #self默认为第一个参数，给到instance
         try:
             logging.info("run " + func.__name__ + "\n args: \n" + repr(args[1:]) + "\n" + repr(kwargs))
             element = func(*args, **kwargs)
@@ -22,10 +23,10 @@ def handle_black(func):
             instance.set_implicitly_wait(3)
             return element
         except Exception as e:
-            instance.screenshot("tmp.png")
+            instance.screenshot("tmp.png")  #生成截图
             with open("tmp.png", "rb") as f:
                 content = f.read()
-            allure.attach(content, attachment_type=allure.attachment_type.PNG)
+            allure.attach(content, attachment_type=allure.attachment_type.PNG)  #将图片传到allure中
             logging.error("element not found, handle black list")
             instance.set_implicitly_wait(1)
             # 如果没找到，就进行黑名单处理
