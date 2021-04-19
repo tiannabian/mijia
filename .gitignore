@@ -126,3 +126,12 @@ dmypy.json
 .pyre/
 
 .gitignore
+/mijia_app/.idea/
+/practice.py
+/mijia_app/.idea/workspace.xml
+.idea/workspace.xml
+mijia_app/.idea/inspectionProfiles/
+mijia_app/.idea/mijia_app.iml
+mijia_app/.idea/misc.xml
+mijia_app/.idea/modules.xml
+mijia_app/.idea/vcs.xml
